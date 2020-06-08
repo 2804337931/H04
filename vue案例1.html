@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+        <div id="app">
+            <button @click="show">动起来</button>
+            <button @click="stop">停下来</button>
+            <h1>{{msg}}</h1>
+        </div>    
+
+        <script >
+            new Vue({
+                el:"#app",
+                data:{
+                    msg:"这假期太长了,好无聊",
+                    setId:null
+                },
+methods: {
+        show(){
+            // 定时器如果已经再运行了,就不要再次运行了
+                if(this.setId!=null)  return;
+            // 如果嵌套的不多的话  我们就用箭头函数来改变this的指向
+            // 准备字符串  截取第一个字  放到最后面去
+        this.setId = setInterval(()=>{
+            var  start = this.msg.substring(0,1)
+            var end = this.msg.substring(1)
+            this.msg = end+start;
+                },50)
+          
+        },
+        stop(){
+            // 让字停下滚动 就是清除上面show方法中的 定时器
+            // 清除定时 器 并不是将setId置空
+            clearInterval(this.setId)
+            this.setId=null;
+        }
+},
+
+            })
+
+
+        </script>
+</body>
+</html>

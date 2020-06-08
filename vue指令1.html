@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /**
+         隐藏  有属性为v-cloak的标签
+        */
+        [v-cloak]{
+         display: none;
+        }
+
+    </style>
+    <!-- 
+            导入 vue.js  
+      -->
+      <script src="vue.js"></script>
+</head>
+<body>
+        <!-- 
+                如何使用vue  展示数据  而且不进行dom操作
+        -->
+        <div id="app">
+           <!-- v-text 和 v-html 的区别就是  innerHTML和innerText的区别  -->
+            <p v-text="msg"></p>
+            <p v-html="msg"></p>
+
+        <!--  v-on 绑定事件的   事件名称  就是原生的js中规定的事件名称 
+            @   是  v-on:  的缩写
+        -->
+                <button @mouseover="show"  >点击</button>
+        </div>
+        <div  v-cloak>
+            {{msg}}
+        </div>
+
+        <script>
+            // 将 要展示 数据的区域的控制权 交给vue实例化的对象
+            new Vue(
+                {
+                     el:"#app",
+                     data:{
+                         msg:'<h1>这是我的第一个vue实例</h1>',
+                         msg2:"这是一个测试数据"
+                     } ,
+                     methods: {
+                         show(){
+                            console.log("触发了show方法!")
+                         },
+                         show2(){
+
+                         },
+                         show3(){
+
+                         }
+                     },  
+                }
+            );
+        </script>
+</body>
+</html>

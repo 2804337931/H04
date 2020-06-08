@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+        <div id="app">
+            <a href="http://www.baidu.com"  @click.prevent.once="show">点击</a>
+      
+      
+        <div @click.capture="show1"  style="width: 400px;height: 400px; background-color: red;">
+                    <div @click.self="show2" style="width: 200px;height: 200px; background-color: blue;">
+                            <button @click="show3">11111</button>
+                    </div>
+            </div>
+        </div>
+        <script>
+new Vue({
+    el:"#app",
+    data:{
+        msg:"hello"
+    },
+    methods: {
+        show(){
+            console.log(1111)
+        },
+        show1(){
+            console.log("outer div")
+        },
+        show2(){
+            console.log("  inner div")
+        },
+        show3(){
+            console.log("button")
+        }
+    },
+
+})
+
+        </script>
+</body>
+</html>

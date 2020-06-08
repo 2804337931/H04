@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+        <div id="app">
+            <h1>{{msg}}</h1>
+            <button @click="show">点击</button>
+            <!-- <img src="data.a"> -->
+           
+ <button  @dblclick="add"> + + </button>
+        </div>
+        <script>
+             new Vue({
+                el:"#app",
+                data:{
+                   msg:"这是vue",
+                //    a:require('./1.jpg')
+                },
+                methods: {
+                    show(){
+                        alert("111")
+                    },
+                    ds(){
+                       alert(1)
+                    },
+                    add(){
+                        alert(1)
+                    }
+                }
+
+            })
+        </script>
+</body>
+</html>
